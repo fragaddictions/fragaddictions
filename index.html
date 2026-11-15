@@ -1,214 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FRAGRANCE ADDICTIONS - Inventory</title>
-<style>
-  :root{
-    --bg:#0c0c0e; --panel:#141417; --panel2:#1b1b1f;
-    --line:#26262c; --gold:#c9a86a; --gold-dim:#8a744d;
-    --text:#e8e4da; --muted:#9a958a; --red:#c05353; --green:#6fae7f;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  body{background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;padding-bottom:60px}
-  header{padding:28px 18px 18px;text-align:center;border-bottom:1px solid var(--line);
-    background:linear-gradient(180deg,#121216,#0c0c0e)}
-  h1{font-size:26px;letter-spacing:4px;color:var(--gold);font-weight:normal}
-  .sub{color:var(--muted);font-size:12px;letter-spacing:2px;margin-top:6px;text-transform:uppercase}
-  .stats{display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 14px;text-align:center;min-width:86px}
-  .stat b{display:block;font-size:18px;color:var(--gold);font-weight:normal}
-  .stat span{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
-  .filters{display:flex;gap:8px;padding:14px 14px 4px;overflow-x:auto;position:sticky;top:0;background:var(--bg);z-index:5}
-  .chip{flex:1;min-width:72px;background:var(--panel);border:1px solid var(--line);color:var(--muted);
-    padding:9px 4px;border-radius:20px;font-size:12px;letter-spacing:1px;text-transform:uppercase;
-    font-family:inherit;cursor:pointer;text-align:center;white-space:nowrap}
-  .chip.active{background:var(--gold);color:#141414;border-color:var(--gold);font-weight:bold}
-  .brand{margin:20px 14px 0}
-  .brand h2{font-size:14px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;
-    border-bottom:1px solid var(--line);padding-bottom:6px;font-weight:normal}
-  .item{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--panel);
-    border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:8px;cursor:pointer}
-  .item:active{background:var(--panel2)}
-  .item .left{flex:1;min-width:0}
-  .item .name{font-size:15px}
-  .item .tags{margin-top:4px;display:flex;gap:6px;flex-wrap:wrap}
-  .tag{font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border-radius:10px;border:1px solid}
-  .tag.sold{color:var(--red);border-color:var(--red)}
-  .tag.recv{color:var(--green);border-color:var(--green)}
-  .tag.note{color:var(--gold);border-color:var(--gold-dim)}
-  .item .right{text-align:right;flex-shrink:0}
-  .qty{font-size:17px;color:var(--gold)}
-  .qty small{font-size:11px;color:var(--muted)}
-  .msrp{font-size:12px;color:var(--muted);margin-top:2px}
-  .item.oos{opacity:.45}
-  .oos-banner{font-size:9px;color:var(--red);letter-spacing:1px;margin-top:2px}
-  .footer{text-align:center;color:var(--muted);font-size:11px;margin-top:36px;letter-spacing:1px}
-  /* modal */
-  .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:50;align-items:center;justify-content:center;padding:20px}
-  .overlay.open{display:flex}
-  .card{background:var(--panel2);border:1px solid var(--gold-dim);border-radius:14px;max-width:360px;width:100%;
-    max-height:90vh;overflow-y:auto;padding:18px;position:relative}
-  .close{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--muted);font-size:26px;cursor:pointer;line-height:1}
-  .imgbox{height:180px;border:1px dashed var(--gold-dim);border-radius:10px;display:flex;align-items:center;
-    justify-content:center;color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-  .mbrand{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
-  .mname{font-size:21px;margin:4px 0 12px}
-  .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
-  .row span:first-child{color:var(--muted)}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fragrance Addictions | Collector Inventory</title>
+  <meta name="description" content="A collector inventory of 68 bottles across 27 brands, listed with stock counts and retail prices.">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/inventory.js" defer></script>
+  <script src="js/site.js" defer></script>
 </head>
-<body>
+<body data-page="index">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">FA</span>
+        <span>
+          <b>FRAGRANCE ADDICTIONS</b>
+          <small>COLLECTOR INVENTORY</small>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">MENU ☰</button>
+      <nav class="nav" id="main-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="videos.html">Videos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow">Collector inventory</p>
+          <h1>Bottles.<br><em>Listed as they stand.</em></h1>
+          <p class="hero-copy">A cabinet of <span data-stat="bottles">68</span> bottles across <span data-stat="brands">27</span> brands and <span data-stat="lines">48</span> lines, with stock counts and retail prices. Nothing here is for checkout on this site.</p>
+          <div class="actions">
+            <a class="button" href="collection.html">Browse the collection <span>↗</span></a>
+            <a class="button outline" href="videos.html">Demo videos <span>→</span></a>
+          </div>
+        </div>
+        <img class="hero-still" src="images/hero-bottle-dark.webp" alt="A clear square perfume bottle with water droplets on a dark surface" width="1200" height="1800">
+      </div>
+    </section>
 
-<header>
-  <h1>FRAGRANCE ADDICTIONS</h1>
-  <div class="sub">Collector Inventory</div>
-  <div class="stats">
-    <div class="stat"><b>68</b><span>Bottles</span></div>
-    <div class="stat"><b>$17,099</b><span>Retail Value</span></div>
-    <div class="stat"><b>27</b><span>Brands</span></div>
-    <div class="stat"><b>48</b><span>Lines</span></div>
-  </div>
-</header>
+    <div class="trail-strip">
+      <div class="wrap">
+        <span><span data-stat="bottles">68</span> bottles</span>
+        <span><span data-stat="retail">$17,099.82</span> retail value</span>
+        <span><span data-stat="brands">27</span> brands · <span data-stat="lines">48</span> lines</span>
+      </div>
+    </div>
 
-<div class="filters">
-  <button class="chip active" data-f="All">All</button>
-  <button class="chip" data-f="Mens">Mens</button>
-  <button class="chip" data-f="Womens">Womens</button>
-  <button class="chip" data-f="Unisex">Unisex</button>
-</div>
 
-<div id="list"></div>
+    <section class="section featured-section" id="featured">
+      <div class="wrap">
+        <div class="editorial-heading">
+          <div>
+            <p class="eyebrow">Featured</p>
+            <h2>Featured videos.</h2>
+          </div>
+          <p>Four places to rotate YouTube videos in and out. Empty slots stay as placeholders until a link is added.</p>
+        </div>
+        <div class="featured-grid" id="featured-videos"></div>
+      </div>
+    </section>
 
-<div class="footer">Tap any bottle for details &middot; Images coming soon</div>
+    <section class="section">
+      <div class="wrap intro-grid">
+        <div class="photo-frame">
+          <img src="images/bottle-sand-grass.webp" alt="An unbranded mint-green perfume bottle lying in sand beside beach grass" width="1066" height="1600">
+          <div class="photo-caption">Generic bottle still · not a listed product</div>
+        </div>
+        <div>
+          <p class="eyebrow">The cabinet</p>
+          <h2>Stock, prices,<br>and the notes that came with them.</h2>
+          <p>Every line in this inventory comes from the existing collector list. Filters sort by Mens, Womens, and Unisex. Tap a bottle for gender, stock, MSRP, and any received, sold, or note tags on file.</p>
+          <p class="muted">Retail value is the in-stock quantity times each line’s listed MSRP. Out-of-stock lines stay in the list, faded, with a stock of zero.</p>
+          <a class="text-link" href="collection.html">Open the full collection →</a>
+        </div>
+      </div>
+    </section>
 
-<div class="overlay" id="overlay">
-  <div class="card">
-    <button class="close" onclick="closeModal()">&times;</button>
-    <div class="imgbox" id="mImg">Image coming soon</div>
-    <div class="mbrand" id="mBrand"></div>
-    <div class="mname" id="mName"></div>
-    <div class="row"><span>Gender</span><span id="mGender"></span></div>
-    <div class="row"><span>In Stock</span><span id="mQty"></span></div>
-    <div class="row"><span>MSRP</span><span id="mMsrp"></span></div>
-    <div class="row" id="rRecv" style="display:none"><span>Received</span><span id="mRecv"></span></div>
-    <div class="row" id="rSold" style="display:none"><span>Sold</span><span id="mSold"></span></div>
-    <div class="row" id="rNote" style="display:none"><span>Note</span><span id="mNote"></span></div>
-  </div>
-</div>
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="editorial-heading">
+          <div>
+            <p class="eyebrow">In the cabinet</p>
+            <h2>The numbers.</h2>
+          </div>
+          <p>These figures are added up from the inventory data when the page loads.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b data-stat="bottles">68</b><span>Bottles</span></div>
+          <div class="stat"><b data-stat="retail">$17,099.82</b><span>Retail value</span></div>
+          <div class="stat"><b data-stat="brands">27</b><span>Brands</span></div>
+          <div class="stat"><b data-stat="lines">48</b><span>Lines</span></div>
+        </div>
+      </div>
+    </section>
 
-<script>
-var INV = [
-["Armani","Acqua Di Gio",1,"Mens",175.00,"", "", ""],
-["Azzaro","Forever Wanted",1,"Mens",155.00,"","1 (11/8/2026)",""],
-["Chanel","Bleu",0,"Mens",248.00,"","",""],
-["Creed","Absolu Aventus",2,"Mens",539.90,"","",""],
-["Creed","Millesime Imperial",2,"Unisex",308.69,"","",""],
-["Creed","Silver Mountain Water",1,"Mens",349.64,"","",""],
-["Dior","Sauvage",1,"Mens",142.00,"","1 (11/8/2026)",""],
-["Dolce & Gabbana","The One",1,"Mens",190.00,"11/4/2026","",""],
-["Dolce & Gabbana","Intenso",1,"Mens",90.00,"","",""],
-["Fragrance Story","Mafia",1,"Womens",96.00,"","1 (11/8/2026)",""],
-["Fragrance Story","Deadly",1,"Mens",96.00,"","1 (11/8/2026)",""],
-["Game of Spades","Full House",0,"Unisex",220.00,"","",""],
-["Givenchy","Gentleman",2,"Mens",155.00,"11/4/2026","",""],
-["Gucci","Flora Gorgeous Gardenia",1,"Womens",181.00,"","",""],
-["Hugo Boss","Boss",1,"Mens",160.00,"","1 (11/8/2026)",""],
-["Initio","Oud for Greatness",1,"Unisex",435.00,"","",""],
-["Kayali","Yum Boujee Marshmallow",1,"Womens",150.00,"11/4/2026","",""],
-["Louis Vuitton","Orage",2,"Mens",360.00,"","","1 - personal inventory"],
-["Maison Francis Kurkdjian","Baccarat Rouge 540",4,"Womens",360.00,"","",""],
-["NYC","Bond No. 9 New York Nights",2,"Unisex",355.00,"11/5/2026","",""],
-["Paco Rabanne","1 Million Royal",1,"Mens",145.00,"11/4/2026","1 (11/8/2026)",""],
-["Paco Rabanne","1 Million",1,"Mens",172.00,"","1 (11/8/2026)",""],
-["Parfums de Marly","Haltane",1,"Mens",460.00,"11/4/2026","1 (11/8/2026)",""],
-["Penhaligon's","Lord George",1,"Mens",350.00,"11/4/2026","",""],
-["Prada","Ocean EDP",2,"Mens",136.00,"11/4/2026","",""],
-["Prada","Ocean Le Parfum-Red",2,"Mens",186.00,"","",""],
-["Prada","Energy",1,"Mens",20.00,"","1 (11/8/2026)",""],
-["Replica","By the Fireplace",2,"Unisex",170.00,"11/4/2026","",""],
-["Replica","Jazz Club",1,"Unisex",170.00,"","",""],
-["Tom Ford","Red Label Fabulous",2,"Unisex",545.00,"11/4/2026","",""],
-["Tom Ford","Ombre Leather",1,"Unisex",240.00,"","1 (11/8/2026)",""],
-["Tom Ford","Fucking Fabulous",2,"Unisex",545.00,"","",""],
-["Tom Ford","Oud Wood",2,"Mens",460.00,"","",""],
-["Valentino","Uomo Born in Roma (1 tester)",3,"Womens",165.00,"","",""],
-["Valentino","Donna Born in Roma Intense",2,"Womens",180.00,"","",""],
-["Valentino","Donna",2,"Womens",185.00,"","",""],
-["Viktor & Rolf","Spicebomb Dark Leather",1,"Mens",140.00,"","",""],
-["Xerjoff","Renaissance",1,"Unisex",285.00,"","",""],
-["Xerjoff","Alexandria II",1,"Unisex",550.00,"","",""],
-["YSL","Black Opium",2,"Womens",174.00,"","",""],
-["YSL","Y (blue label) EDP",1,"Mens",170.00,"","",""],
-["YSL","Myslf Eau De Parfum",1,"Mens",170.00,"","",""],
-["YSL","Black Opium Over Red",1,"Womens",174.00,"","",""],
-["YSL","Libre Eau De Parfum Silver/gold",2,"Womens",185.00,"","",""],
-["YSL","Libre Le Parfum Gold/Black",1,"Womens",185.00,"","",""],
-["YSL","Myslf - Le Parfum (black)",2,"Mens",170.00,"11/4/2026","",""],
-["YSL","Myslf - L'absolu (silver)",2,"Mens",170.00,"11/4/2026","",""],
-["Zakart","Z25",1,"Unisex",65.00,"","",""]
-];
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="editorial-heading">
+          <div>
+            <p class="eyebrow">From Armani to Zakart</p>
+            <h2>The brands.</h2>
+          </div>
+          <p>Every brand in the inventory, with bottle counts from the data. Each name opens that heading in the collection.</p>
+        </div>
+        <div class="brand-directory" id="brand-directory"></div>
+      </div>
+    </section>
 
-function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="editorial-heading">
+          <div>
+            <p class="eyebrow">On this site</p>
+            <h2>There’s more in the cabinet.</h2>
+          </div>
+        </div>
+        <div class="explore">
+          <a class="explore-row" href="collection.html">
+            <span class="n">01</span>
+            <h3>The collection</h3>
+            <p>All 48 lines, filters, stock, MSRP, and detail cards.</p>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="explore-row" href="videos.html">
+            <span class="n">02</span>
+            <h3>Demo videos</h3>
+            <p>YouTube demos, when a link has been added to a bottle or brand.</p>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="explore-row" href="about.html">
+            <span class="n">03</span>
+            <h3>About</h3>
+            <p>A place for the story of this inventory, once the text is supplied.</p>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-var filter = "All";
-var brands = [];
-INV.forEach(function(r){ if(brands.indexOf(r[0])<0) brands.push(r[0]) });
-brands.sort();
-
-function render(){
-  var html = "";
-  brands.forEach(function(b){
-    var rows = INV.map(function(r,i){return {r:r,i:i}}).filter(function(o){return o.r[0]===b && (filter==="All"||o.r[3]===filter)});
-    if(!rows.length) return;
-    html += '<div class="brand"><h2>'+esc(b)+'</h2>';
-    rows.forEach(function(o){
-      var r=o.r;
-      html += '<div class="item'+(r[2]===0?' oos':'')+'" onclick="openModal('+o.i+')">'
-        + '<div class="left"><div class="name">'+esc(r[1])+'</div><div class="tags">'
-        + (r[6]?'<span class="tag sold">Sold</span>':'')
-        + (r[5]?'<span class="tag recv">Received</span>':'')
-        + (r[7]?'<span class="tag note">Note</span>':'')
-        + '</div></div>'
-        + '<div class="right">'
-        + (r[2]===0?'<div class="oos-banner">Out of stock</div>':'<div class="qty">'+r[2]+' <small>in stock</small></div>')
-        + '<div class="msrp">$'+r[4].toFixed(2)+'</div></div></div>';
-    });
-    html += '</div>';
-  });
-  document.getElementById('list').innerHTML = html;
-}
-
-document.querySelectorAll('.chip').forEach(function(c){
-  c.addEventListener('click',function(){
-    document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('active')});
-    c.classList.add('active');
-    filter = c.dataset.f;
-    render();
-  });
-});
-
-function openModal(i){
-  var r = INV[i];
-  document.getElementById('mBrand').textContent = r[0];
-  document.getElementById('mName').textContent = r[1];
-  document.getElementById('mGender').textContent = r[3];
-  document.getElementById('mQty').textContent = r[2]===0 ? 'Out of stock' : r[2];
-  document.getElementById('mMsrp').textContent = '$'+r[4].toFixed(2);
-  document.getElementById('rRecv').style.display = r[5]?'flex':'none';
-  document.getElementById('mRecv').textContent = r[5];
-  document.getElementById('rSold').style.display = r[6]?'flex':'none';
-  document.getElementById('mSold').textContent = r[6];
-  document.getElementById('rNote').style.display = r[7]?'flex':'none';
-  document.getElementById('mNote').textContent = r[7];
-  document.getElementById('overlay').classList.add('open');
-}
-function closeModal(){ document.getElementById('overlay').classList.remove('open') }
-document.getElementById('overlay').addEventListener('click',function(e){ if(e.target===this) closeModal() });
-
-render();
-</script>
-
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="footer-brand">
+        <strong>Fragrance Addictions</strong>
+        Collector inventory
+      </div>
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="videos.html">Videos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collection | Fragrance Addictions</title>
+  <meta name="description" content="Browse all 48 lines in the Fragrance Addictions collector inventory, with filters, stock, and retail prices.">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/inventory.js" defer></script>
+  <script src="js/site.js" defer></script>
+</head>
+<body data-page="collection">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">FA</span>
+        <span>
+          <b>FRAGRANCE ADDICTIONS</b>
+          <small>COLLECTOR INVENTORY</small>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false">MENU ☰</button>
+      <nav class="nav" id="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="collection.html" aria-current="page">Collection</a>
+        <a href="videos.html">Videos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">The collection</p>
+        <h1>All <span data-stat="lines">48</span> lines.</h1>
+        <p class="muted">Stock counts and listed MSRP, grouped A to Z by brand. Tap any bottle for details.</p>
+        <img class="collection-hero-still" src="images/bottle-sand-shadow.webp" alt="An unbranded mint-green perfume bottle on sand in striped shadow" width="1600" height="1067">
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter by category">
+        <button class="chip active" data-f="All" aria-pressed="true">All</button>
+        <button class="chip" data-f="Mens" aria-pressed="false">Mens</button>
+        <button class="chip" data-f="Womens" aria-pressed="false">Womens</button>
+        <button class="chip" data-f="Unisex" aria-pressed="false">Unisex</button>
+      </div>
+      <div id="result-count">48 lines</div>
+      <div id="list"></div>
+      <p class="tap-hint">Tap any bottle for details</p>
+    </div>
+
+    <div class="overlay" id="overlay" aria-hidden="true">
+      <div class="card" role="dialog" aria-modal="true" aria-labelledby="mName">
+        <button class="close" type="button" aria-label="Close">&times;</button>
+        <div class="imgbox">
+          <img src="images/bottles-marble.webp" alt="Two unbranded glass perfume bottles on a marble surface" width="1066" height="1600">
+        </div>
+        <div id="mVideo" hidden></div>
+        <div class="mbrand" id="mBrand"></div>
+        <div class="mname" id="mName"></div>
+        <div class="row"><span>Gender</span><span id="mGender"></span></div>
+        <div class="row"><span>In Stock</span><span id="mQty"></span></div>
+        <div class="row"><span>MSRP</span><span id="mMsrp"></span></div>
+        <div class="row" id="rRecv" hidden><span>Received</span><span id="mRecv"></span></div>
+        <div class="row" id="rSold" hidden><span>Sold</span><span id="mSold"></span></div>
+        <div class="row" id="rNote" hidden><span>Note</span><span id="mNote"></span></div>
+      </div>
+    </div>
+
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="footer-brand">
+        <strong>Fragrance Addictions</strong>
+        Collector inventory
+      </div>
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="videos.html">Videos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

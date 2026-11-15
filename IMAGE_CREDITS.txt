@@ -1,0 +1,45 @@
+Fragrance Addictions site — stock image credits
+All photos are generic perfume or cologne bottles with no brand logos
+and no identifiable branded products. Licenses are free for commercial
+use; attribution is not required, but sources are recorded here.
+
+1. images/hero-bottle-dark.webp
+   Source page: https://www.pexels.com/photo/water-drops-on-an-ornate-glass-bottle-7814730/
+   Photographer: Mikhail Nilov
+   License: Pexels License (free to use, attribution not required)
+   Used for: home-page hero background and hero still
+
+2. images/bottles-marble.webp
+   Source page: https://www.pexels.com/photo/clear-glass-perfume-bottle-with-red-lid-4735908/
+   Photographer: Kaboompics (Karolina Grabowska)
+   License: Pexels License (free to use, attribution not required)
+   Used for: home intro still and modal default bottle image
+
+3. images/bottle-sand-grass.webp
+   Source page: https://www.pexels.com/photo/a-perfume-bottle-on-the-sand-8361479/
+   Photographer: Kaboompics (Karolina Grabowska)
+   License: Pexels License (free to use, attribution not required)
+   Used for: home “the cabinet” still and section atmosphere
+
+4. images/bottle-sand-shadow.webp
+   Source page: https://www.pexels.com/photo/8361480/
+   Photographer: Kaboompics (Karolina Grabowska)
+   License: Pexels License (free to use, attribution not required)
+   Note: Same unbranded mint-bottle-on-sand series as 8361479 and 8361517.
+   Used for: collection-page intro still
+
+5. images/bottle-sand-driftwood.webp
+   Source page: https://www.pexels.com/photo/close-up-shot-of-a-white-perfume-bottle-on-the-sand-8361517/
+   Photographer: Kaboompics (Karolina Grabowska)
+   License: Pexels License (free to use, attribution not required)
+   Used for: about-page still
+
+6. images/bottles-vanity.webp
+   Source page: https://www.pexels.com/photo/perfumes-on-the-table-7598170/
+   Photographer: cottonbro studio
+   License: Pexels License (free to use, attribution not required)
+   Used for: videos-page still and contact-page still
+
+Rejected during review (branded or identifiable products, not used):
+Tom Ford Ombre Leather, Boss, Chanel, Dolce & Gabbana, Lancôme, Dior,
+Golden Black, Estée Lauder, and other labeled commercial bottles.
