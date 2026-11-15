@@ -6,11 +6,23 @@
   <title>Fragrance Addictions</title>
   <meta name="description" content="About Fragrance Addictions">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <script src="js/inventory.js" defer></script>
   <script src="js/site.js" defer></script>
   <style>
   .about-layout { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; }
   .about-head { padding-bottom: 8px; }
+  .home-logo {
+    display: block;
+    width: 66vw;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto 20px;
+    -webkit-mask-image: radial-gradient(ellipse 72% 64% at 50% 48%, #000 56%, transparent 84%);
+    mask-image: radial-gradient(ellipse 72% 64% at 50% 48%, #000 56%, transparent 84%);
+  }
   .about-head h1 { margin-bottom: 18px; }
   .about-head .about-lede { margin-bottom: 0; }
   .about-prose { max-width: 680px; }
@@ -25,7 +37,8 @@
   .about-pull {
     margin: 28px 0;
     padding: 8px 0 8px 22px;
-    border-left: 2px solid var(--gold);
+    border-left: 2px solid transparent;
+    border-image: linear-gradient(180deg, #ecd38c, #d4b062, #9a6f2a) 1;
   }
   .about-pull p {
     font-family: var(--serif-display);
@@ -55,7 +68,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">FA</span>
+        <img class="brand-mark" src="images/logo-mark.webp" alt="Fragrance Addictions logo" width="112" height="192">
         <span>
           <b>FRAGRANCE ADDICTIONS</b>
           <small>COLLECTOR INVENTORY</small>
@@ -74,6 +87,7 @@
   <main id="main">
     <section class="page-head about-head">
       <div class="wrap">
+        <img class="home-logo" src="images/logo-full.webp" alt="Fragrance Addictions logo" width="768" height="1376">
         <h1>About Fragrance Addictions</h1>
         <p class="about-lede">Before they notice your fragrance, you feel it.</p>
       </div>
@@ -134,6 +148,9 @@
         <a href="contact.html">Contact</a>
         <a href="#top">Back to top ↑</a>
       </div>
+      <a class="partner-badge" href="https://trailhead-commerce.lol/" target="_blank" rel="noopener">
+        <img src="images/trailhead-partner.webp" alt="Trailhead Commerce Partner" width="240" height="230">
+      </a>
     </div>
   </footer>
 </body>

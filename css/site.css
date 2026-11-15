@@ -5,9 +5,10 @@
   --panel: #141417;
   --panel2: #1b1b1f;
   --line: #2a2a31;
-  --gold: #c9a86a;
-  --gold-dim: #8a744d;
-  --gold-soft: #e8d7b0;
+  --gold: #d4b062;
+  --gold-dim: #9a6f2a;
+  --gold-soft: #ecd38c;
+  --gold-grad: linear-gradient(135deg, #ecd38c 0%, #e0c070 28%, #d4b062 52%, #c0a050 78%, #9a6f2a 100%);
   --text: #e8e4da;
   --muted: #9a958a;
   --red: #c05353;
@@ -71,7 +72,8 @@ p { margin-bottom: 18px; }
 .site-header {
   background: #09090b;
   color: var(--text);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent 0%, #ecd38c 18%, #d4b062 50%, #9a6f2a 82%, transparent 100%) 1;
 }
 .header-inner {
   display: flex;
@@ -89,15 +91,11 @@ p { margin-bottom: 18px; }
   flex-shrink: 0;
 }
 .brand-mark {
-  width: 48px;
   height: 48px;
-  border: 1px solid var(--gold);
-  display: grid;
-  place-items: center;
-  font: 600 16px/1 var(--label);
-  letter-spacing: 1px;
-  color: var(--gold);
+  width: auto;
+  display: block;
   flex-shrink: 0;
+  object-fit: contain;
 }
 .brand b {
   font: 600 18px/1 var(--label);
@@ -139,7 +137,7 @@ p { margin-bottom: 18px; }
   justify-content: center;
   gap: 14px;
   padding: 14px 22px;
-  background: var(--gold);
+  background: var(--gold-grad);
   color: var(--ink-on-gold);
   font: 600 14px var(--label);
   text-transform: uppercase;
@@ -149,14 +147,20 @@ p { margin-bottom: 18px; }
   cursor: pointer;
   min-height: 48px;
 }
-.button:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
+.button:hover { background: var(--gold-soft); border-color: var(--gold-soft); color: var(--ink-on-gold); }
 .button.light { background: var(--text); border-color: var(--text); color: var(--ink-on-gold); }
 .button.outline {
   background: transparent;
-  border-color: var(--gold);
+  border: 1px solid transparent;
+  background-image: linear-gradient(var(--bg), var(--bg)), var(--gold-grad);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
   color: var(--gold);
 }
-.button.outline:hover { background: var(--gold); color: var(--ink-on-gold); }
+.button.outline:hover {
+  background-image: var(--gold-grad), var(--gold-grad);
+  color: var(--ink-on-gold);
+}
 .actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .text-link {
   color: var(--gold);
@@ -199,7 +203,9 @@ p { margin-bottom: 18px; }
   max-height: 320px;
   object-fit: cover;
   object-position: center 72%;
-  border: 1px solid var(--gold-dim);
+  border: 1px solid transparent;
+  padding: 1px;
+  background: var(--gold-grad);
   box-shadow: 0 24px 40px #0008;
 }
 
@@ -233,7 +239,9 @@ p { margin-bottom: 18px; }
   height: auto;
   max-height: 420px;
   object-fit: cover;
-  border: 1px solid var(--line);
+  border: 0;
+  padding: 1px;
+  background: var(--gold-grad);
 }
 .photo-caption {
   margin-top: 10px;
@@ -249,8 +257,10 @@ p { margin-bottom: 18px; }
   gap: 10px;
 }
 .stat {
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background:
+    linear-gradient(var(--panel), var(--panel)) padding-box,
+    var(--gold-grad) border-box;
+  border: 1px solid transparent;
   border-radius: 8px;
   padding: 16px 14px;
   text-align: center;
@@ -323,10 +333,22 @@ p { margin-bottom: 18px; }
 .callout p { color: var(--muted); max-width: 560px; }
 
 footer {
-  border-top: 1px solid var(--line);
+  border-top: 0;
+  position: relative;
   padding-block: 28px 36px;
   color: var(--muted);
   font-size: 14px;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #ecd38c 18%, #d4b062 50%, #9a6f2a 82%, transparent 100%);
+  opacity: 0.9;
+  pointer-events: none;
 }
 footer .wrap {
   display: grid;
@@ -353,6 +375,21 @@ footer a {
 }
 footer a:hover { color: var(--gold); }
 
+.partner-badge {
+  display: block;
+  width: 100px;
+  margin: 28px auto 0;
+  line-height: 0;
+  text-decoration: none;
+  filter: drop-shadow(0 0 8px rgba(212, 176, 98, 0.5)) drop-shadow(0 0 1px rgba(236, 211, 140, 0.85));
+}
+.partner-badge img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 /* Collection filters + list */
 .page-head { padding: 36px 0 10px; }
 .page-head h1 { font-size: clamp(40px, 10vw, 76px); margin-bottom: 12px; }
@@ -361,7 +398,9 @@ footer a:hover { color: var(--gold); }
   max-height: 220px;
   object-fit: cover;
   object-position: center 45%;
-  border: 1px solid var(--line);
+  border: 0;
+  padding: 1px;
+  background: var(--gold-grad);
   margin-top: 8px;
 }
 
@@ -392,9 +431,9 @@ footer a:hover { color: var(--gold); }
   white-space: nowrap;
 }
 .chip.active {
-  background: var(--gold);
+  background: linear-gradient(135deg, #ecd38c 0%, #d4b062 55%, #c0a050 100%);
   color: var(--ink-on-gold);
-  border-color: var(--gold);
+  border-color: #c0a050;
 }
 #result-count {
   font: 600 11px var(--label);
@@ -412,7 +451,8 @@ footer a:hover { color: var(--gold); }
   letter-spacing: 3px;
   color: var(--gold);
   text-transform: uppercase;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, #ecd38c, #d4b062, #9a6f2a, transparent 85%) 1;
   padding-bottom: 6px;
   font-weight: 600;
   margin-bottom: 0;
@@ -423,14 +463,20 @@ footer a:hover { color: var(--gold); }
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background:
+    linear-gradient(var(--panel), var(--panel)) padding-box,
+    var(--gold-grad) border-box;
+  border: 1px solid transparent;
   border-radius: 10px;
   padding: 12px;
   margin-top: 8px;
   cursor: pointer;
 }
-.item:hover, .item:focus { background: var(--panel2); }
+.item:hover, .item:focus {
+  background:
+    linear-gradient(var(--panel2), var(--panel2)) padding-box,
+    var(--gold-grad) border-box;
+}
 .item .left { flex: 1; min-width: 0; }
 .item .name { font-size: 15px; }
 .item .tags { margin-top: 4px; display: flex; gap: 6px; flex-wrap: wrap; }
@@ -480,8 +526,10 @@ footer a:hover { color: var(--gold); }
 }
 .overlay.open { display: flex; }
 .card {
-  background: var(--panel2);
-  border: 1px solid var(--gold-dim);
+  background:
+    linear-gradient(var(--panel2), var(--panel2)) padding-box,
+    var(--gold-grad) border-box;
+  border: 1px solid transparent;
   border-radius: 14px;
   max-width: 360px;
   width: 100%;
@@ -506,11 +554,13 @@ footer a:hover { color: var(--gold); }
   z-index: 2;
 }
 .imgbox {
-  border: 1px solid var(--gold-dim);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#0a0a0c, #0a0a0c) padding-box,
+    var(--gold-grad) border-box;
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 14px;
-  background: #0a0a0c;
 }
 .imgbox img {
   width: 100%;
@@ -568,14 +618,16 @@ footer a:hover { color: var(--gold); }
   grid-template-columns: 1fr;
 }
 .featured-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background:
+    linear-gradient(var(--panel), var(--panel)) padding-box,
+    var(--gold-grad) border-box;
+  border: 1px solid transparent;
   border-radius: 12px;
   padding: 20px 18px 22px;
 }
 .featured-card.is-placeholder {
-  border-style: dashed;
-  border-color: var(--gold-dim);
+  background: var(--panel);
+  border: 1px dashed var(--gold-dim);
 }
 .featured-card .eyebrow { margin-bottom: 8px; }
 .featured-card h3 {
@@ -639,7 +691,7 @@ footer a:hover { color: var(--gold); }
 @media (min-width: 760px) {
   .wrap { padding-inline: 48px; }
   .brand b { font-size: 22px; }
-  .brand-mark { width: 56px; height: 56px; font-size: 18px; }
+  .brand-mark { height: 64px; width: auto; }
   .hero .wrap {
     grid-template-columns: 1.25fr 0.75fr;
     padding-top: 64px;
@@ -716,7 +768,7 @@ footer a:hover { color: var(--gold); }
 
 @media (max-width: 430px) {
   .brand { gap: 8px; }
-  .brand-mark { width: 40px; height: 40px; font-size: 13px; }
+  .brand-mark { height: 44px; width: auto; }
   .brand b { font-size: 15px; letter-spacing: 1px; }
   .brand small { font-size: 8px; letter-spacing: 1.2px; }
   .menu-toggle { padding: 9px; font-size: 13px; }
