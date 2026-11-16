@@ -43,16 +43,3 @@ use; attribution is not required, but sources are recorded here.
 Rejected during review (branded or identifiable products, not used):
 Tom Ford Ombre Leather, Boss, Chanel, Dolce & Gabbana, Lancôme, Dior,
 Golden Black, Estée Lauder, and other labeled commercial bottles.
-
-MUSIC
-7. audio/fireflies-and-stardust.mp3
-   Title: Fireflies and Stardust
-   Artist: Kevin MacLeod (incompetech.com)
-   Source page: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1600061
-   Download: https://incompetech.com/music/royalty-free/mp3-royaltyfree/Fireflies%20and%20Stardust.mp3
-   License: Creative Commons Attribution 4.0 (CC BY 4.0)
-   License URL: https://creativecommons.org/licenses/by/4.0/
-   Verified on: https://incompetech.com/music/royalty-free/faq.html
-     and https://incompetech.com/music/royalty-free/licenses/
-   Used for: optional background music (play button on every page)
-   Attribution appears in each page footer, as required by CC BY 4.0.

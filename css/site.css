@@ -335,7 +335,7 @@ p { margin-bottom: 18px; }
 footer {
   border-top: 0;
   position: relative;
-  padding-block: 28px 88px;
+  padding-block: 28px 36px;
   color: var(--muted);
   font-size: 14px;
 }
@@ -734,7 +734,6 @@ footer a:hover { color: var(--gold); }
   }
   footer .wrap {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: end;
     gap: 24px;
@@ -781,65 +780,4 @@ footer a:hover { color: var(--gold); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; animation: none !important; }
-}
-
-/* Background music toggle + credit */
-.music-toggle {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 40;
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  background:
-    linear-gradient(#141417, #141417) padding-box,
-    var(--gold-grad) border-box;
-  color: var(--gold-soft);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 8px rgba(212, 176, 98, 0.28);
-}
-.music-toggle:hover,
-.music-toggle:focus-visible {
-  color: var(--ink-on-gold);
-  background:
-    var(--gold-grad) padding-box,
-    var(--gold-grad) border-box;
-}
-.music-toggle[aria-pressed="true"] {
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45), 0 0 12px rgba(212, 176, 98, 0.45);
-}
-.music-toggle svg {
-  width: 22px;
-  height: 22px;
-  display: block;
-  pointer-events: none;
-}
-.music-credit {
-  margin: 8px 0 0;
-  font: 400 11px/1.45 var(--sans);
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--muted);
-  max-width: 36em;
-}
-.music-credit a {
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: none;
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.music-credit a:hover { color: var(--gold); }
-@media (min-width: 760px) {
-  .music-credit,
-  .partner-badge {
-    flex: 1 0 100%;
-  }
 }
